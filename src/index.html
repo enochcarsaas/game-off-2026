@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>Game Off 2026</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}html,body{margin:0;height:100%;overflow:hidden;background:#2a1f4d;font-family:system-ui,sans-serif;color:#fff;touch-action:none}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+#hud{position:fixed;top:env(safe-area-inset-top,0);left:0;right:0;display:flex;gap:14px;align-items:center;padding:12px 16px;font-weight:800;font-size:22px;text-shadow:0 2px 0 #0008;pointer-events:none}
+#combo{color:#5cf2ff}#hp{color:#ff4d6d;margin-left:auto}#pbtn{pointer-events:auto;background:#0004;border:2px solid #fff6;color:#fff;border-radius:10px;font-size:18px;width:40px;height:40px}
+.bump{animation:b .25s}@keyframes b{50%{transform:scale(1.4)}}
+.ov{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#1a1236cc;backdrop-filter:blur(3px);text-align:center;padding:20px}
+.ov[hidden]{display:none}h1{font-size:44px;margin:0;letter-spacing:2px;text-shadow:0 4px 0 #ff4d6d}
+button{font:inherit;font-weight:800;font-size:20px;padding:12px 28px;border:0;border-radius:14px;background:#ffc94d;color:#2a1f4d;box-shadow:0 5px 0 #b8862a;cursor:pointer}button:active{transform:translateY(3px);box-shadow:0 2px 0 #b8862a}
+.sub{background:#6d5aa8;color:#fff;box-shadow:0 5px 0 #43357a}label{display:flex;gap:10px;align-items:center;font-size:18px}
+#stick{position:fixed;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;border:3px solid #fff5;display:none;pointer-events:none}
+#knob{position:absolute;left:50%;top:50%;width:46px;height:46px;border-radius:50%;background:#fff8;transform:translate(-50%,-50%)}
+#pops{position:fixed;inset:0;pointer-events:none}.pop{position:absolute;font-weight:900;font-size:20px;transform:translate(-50%,-50%);animation:p .7s forwards;text-shadow:0 2px 0 #0009}@keyframes p{to{transform:translate(-50%,-160%);opacity:0}}
+.hint{opacity:.8;font-size:15px}
+</style></head><body>
+<canvas id="c"></canvas><div id="pops"></div>
+<div id="hud"><span id="score">0</span><span id="combo">x1</span><span id="time">0s</span><span id="hp"></span><button id="pbtn" aria-label="pause">II</button></div>
+<div id="stick"><div id="knob"></div></div>
+<div id="menu" class="ov"><h1>GAME OFF 26</h1><div class="hint">Move: WASD / drag left side · Dash-smash: Space / click / tap right side</div><button id="play">PLAY</button><button class="sub openset">SETTINGS</button><div class="hint">Best: <span id="bestm">0</span></div></div>
+<div id="over" class="ov" hidden><h1>RUN OVER</h1><div style="font-size:28px">Score <b id="final">0</b> · Best <b id="bestv">0</b></div><button id="again">AGAIN</button></div>
+<div id="pause" class="ov" hidden><h1>PAUSED</h1><button id="resume">RESUME</button><button class="sub openset">SETTINGS</button></div>
+<div id="settings" class="ov" hidden><h1>SETTINGS</h1>
+<label>Volume <input id="vol" type="range" min="0" max="1" step="0.05"></label><label>Music <input id="mus" type="range" min="0" max="1" step="0.05"></label>
+<label>Quality <select id="qual"><option value="auto">Auto</option><option value="0">Low</option><option value="1">Medium</option><option value="2">High</option></select></label><button id="closeset">DONE</button></div>
+<!--SCRIPT-->
+</body></html>
